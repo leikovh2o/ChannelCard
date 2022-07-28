@@ -7,13 +7,11 @@ function priceService(baseUrl) {
   }
 
   async function getPriceAsync() {
-    const url = baseUrl;
+    const url = baseUrl + "/api/Card/GetPrice";
 
-    var Price = await executeRequestAsync(url + "/api/Card/GetPrice", httpMethod.GET, "Extragerea a fost efectuata cu succes");
+    var card = await executeRequestAsync(url, httpMethod.GET, "Extragerea a fost efectuata cu succes");
 
-    const price = [];
-
-    return price;
+    return card.price;
   }
 
   async function executeRequestAsync(url, httpMethod, succesMessage){
@@ -22,7 +20,7 @@ function priceService(baseUrl) {
       url: url,
       type: httpMethod,
       contentType: "application/json",
-      success: (xhr, status, error) => console.log(successMessage)
+      success: (xhr, status, error) => console.log(succesMessage)
     })
   }
   
