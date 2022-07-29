@@ -11,6 +11,8 @@ function priceService(baseUrl) {
 
     var card = await executeRequestAsync(url, httpMethod.GET, "Extragerea a fost efectuata cu succes");
 
+    card = JSON.parse(card)
+
     return card.price;
   }
 
