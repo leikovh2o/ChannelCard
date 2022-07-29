@@ -9,7 +9,8 @@ async function LoadDocument(){
   cardPrice.innerHTML = prices.toFixed(2) + "$";
 
   cartBtn[0].addEventListener('click',async () => {
-    cardPrice.innerHTML = await PriceService.getPriceAsync() + "$";
+    const prices = await PriceService.getPriceAsync();
+    cardPrice.innerHTML = prices.toFixed(2) + "$";
   })
 
   console.log(prices)
